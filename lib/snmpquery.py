@@ -40,7 +40,14 @@ async def _snmpquery(
     else:
         results = {}
         for oid, is_table in queries:
-            result = await client.walk(oid, is_table)
+            try:
+                result = await client.walk(oid, is_table)
+            except IndexError:
+                vbs = await client._get_bulk([oid])
+                for next_oid, tag, value in vbs:
+                    logging.debug(f'{next_oid}|{tag.nr}|{tag.typ}|{value}')
+                continue
+
             try:
                 name, result = _on_result(oid, result)
             except Exception as e:
