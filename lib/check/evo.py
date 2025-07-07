@@ -5,12 +5,13 @@ from ..snmpclient import get_snmp_client
 from ..snmpquery import snmpquery
 
 QUERIES = (
-    (MIB_INDEX['EVO-MIB']['evo'], False),
-    (MIB_INDEX['EVO-MIB']['evoCpuDetails'], False),
-    (MIB_INDEX['EVO-MIB']['evoUptime'], False),
-    (MIB_INDEX['EVO-MIB']['evoUPS'], False),
+    (MIB_INDEX['EVO-MIB']['evo'], True),
+    (MIB_INDEX['EVO-MIB']['evoCpuDetails'], True),
+    (MIB_INDEX['EVO-MIB']['evoUptime'], True),
+    (MIB_INDEX['EVO-MIB']['evoUPS'], True),
 )
-
+# NOTE evo, evoCpuDetails, evoUptime, evoUPS are single item, but we have to
+# set is_table=True as oids in the result lack the 0 at the end.
 
 async def check_evo(
         asset: Asset,
