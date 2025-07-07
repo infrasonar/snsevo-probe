@@ -24,7 +24,7 @@ async def check_evo(
         raise CheckException('no data found')
 
     ups = state['ups']
-    item = state['evo']
+    item = state['evo'][0]
     cpu = state['evoCpuDetails']
     uptime = state['evoUptime']
 
