@@ -17,7 +17,7 @@ async def check_volumes(
     state = await snmpquery(snmp, QUERIES)
 
     for item in state['volumesTableEntry']:
-        item['volumesTableSize'] *= 1000000
+        item['volumesTableSize'] *= 1_000_000
 
     return {
         'volumes': state['volumesTableEntry']
