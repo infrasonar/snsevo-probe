@@ -15,4 +15,6 @@ async def check_per_drive_stats(
 
     snmp = get_snmp_client(asset, asset_config, check_config)
     state = await snmpquery(snmp, QUERIES)
-    return state
+    return {
+        'perDriveStats': state['perDriveStatsTableEntry']
+    }

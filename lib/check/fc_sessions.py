@@ -15,4 +15,6 @@ async def check_fc_sessions(
 
     snmp = get_snmp_client(asset, asset_config, check_config)
     state = await snmpquery(snmp, QUERIES)
-    return state
+    return {
+        'fcSessions': state['fcSessionsTableEntry']
+    }

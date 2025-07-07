@@ -15,4 +15,6 @@ async def check_nas_sessions(
 
     snmp = get_snmp_client(asset, asset_config, check_config)
     state = await snmpquery(snmp, QUERIES)
-    return state
+    return {
+        'nasSessions': state['nasSessionsTableEntry']
+    }
