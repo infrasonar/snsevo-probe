@@ -43,7 +43,9 @@ async def _snmpquery(
             try:
                 result = await client.walk(oid, is_table)
             except IndexError:
+                logging.debug(f'GETBULK {oid}')
                 vbs = await client._get_bulk([oid])
+                logging.debug(f'GETBULK {oid} response:')
                 for next_oid, tag, value in vbs:
                     logging.debug(f'{next_oid}|{tag.nr}|{tag.typ}|{value}')
                 continue
