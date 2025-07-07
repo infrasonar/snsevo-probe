@@ -32,8 +32,15 @@ See the [SNMP probe](https://github.com/infrasonar/snmp-probe#config).
 ## Dry run
 
 Available checks:
-- `xxx`
-
+- `evo`
+- `evoCpuDetails`
+- `evoIntDiskStats`
+- `fcSessions`
+- `iscsiSessions`
+- `nasSessions`
+- `perDriveStats`
+- `realtimeVolumes`
+- `volumes`
 
 Create a yaml file, for example _(test.yaml)_:
 

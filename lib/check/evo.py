@@ -5,11 +5,13 @@ from ..snmpclient import get_snmp_client
 from ..snmpquery import snmpquery
 
 QUERIES = (
-    (MIB_INDEX['XXX']['xxx'], False),
+    (MIB_INDEX['EVO-MIB']['evo'], False),
+    (MIB_INDEX['EVO-MIB']['evoUptime'], False),
+    (MIB_INDEX['EVO-MIB']['evoUPS'], False),
 )
 
 
-async def check_xxx(
+async def check_evo(
         asset: Asset,
         asset_config: dict,
         check_config: dict) -> dict:

@@ -1,0 +1,939 @@
+{
+  "IMPORTS": [
+    [
+      "SNMPv2-SMI",
+      [
+        "enterprises"
+      ]
+    ],
+    [
+      "SNMPv2-SMI",
+      [
+        "OBJECT-TYPE"
+      ]
+    ],
+    [
+      "SNMPv2-CONF",
+      [
+        "OBJECT-GROUP"
+      ]
+    ],
+    [
+      "SNMPv2-SMI",
+      [
+        "NOTIFICATION-TYPE",
+        "MODULE-IDENTITY",
+        "Integer32",
+        "Opaque",
+        "Counter32"
+      ]
+    ],
+    [
+      "SNMPv2-TC",
+      [
+        "DisplayString"
+      ]
+    ]
+  ],
+  "sns": {
+    "tp": "MODULE-IDENTITY",
+    "value": [
+      "enterprises",
+      23599
+    ]
+  },
+  "snsMIBConformance": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "sns",
+      1
+    ]
+  },
+  "snsMIBCompliances": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "snsMIBConformance",
+      1
+    ]
+  },
+  "snsMIBGroups": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "snsMIBConformance",
+      2
+    ]
+  },
+  "snsTraps": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "sns",
+      3
+    ]
+  },
+  "snsTrapPayloads": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "sns",
+      4
+    ]
+  },
+  "evo": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "sns",
+      2
+    ]
+  },
+  "snsGroup": {
+    "tp": "OBJECT-GROUP",
+    "value": [
+      "snsMIBGroups",
+      1
+    ]
+  },
+  "evoVersion": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evo",
+      1
+    ]
+  },
+  "evoLocalTime": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evo",
+      2
+    ]
+  },
+  "evoUptime": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "evo",
+      3
+    ]
+  },
+  "evoUptimeSeconds": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoUptime",
+      1
+    ]
+  },
+  "evoUptimeString": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoUptime",
+      2
+    ]
+  },
+  "evoCpuLoadedUptime": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evo",
+      4
+    ]
+  },
+  "evoUPS": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "evo",
+      5
+    ]
+  },
+  "evoUPSSerial": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoUPS",
+      1
+    ]
+  },
+  "evoUPSMonitor": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoUPS",
+      2
+    ]
+  },
+  "evoUPSShutdown": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoUPS",
+      3
+    ]
+  },
+  "evoUPSCriticalChargeLevel": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoUPS",
+      4
+    ]
+  },
+  "evoUPSCurrentChargeLevel": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoUPS",
+      5
+    ]
+  },
+  "evoUPSOnlineStatus": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoUPS",
+      6
+    ]
+  },
+  "evoUPSTimeLeft": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoUPS",
+      7
+    ]
+  },
+  "evoUPSEvents": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoUPS",
+      8
+    ]
+  },
+  "evoIntDiskStats": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "evo",
+      6
+    ]
+  },
+  "evoIntDiskStatsRead": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoIntDiskStats",
+      1
+    ]
+  },
+  "evoIntDiskStatsWrite": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoIntDiskStats",
+      2
+    ]
+  },
+  "perDriveStatsTable": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "SEQUENCE OF PerDriveStatsTableEntry"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evo",
+      7
+    ]
+  },
+  "perDriveStatsTableEntry": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "PerDriveStatsTableEntry"
+    },
+    "access": null,
+    "index": [
+      "perDriveStatsTableIndex"
+    ],
+    "value": [
+      "perDriveStatsTable",
+      1
+    ]
+  },
+  "PerDriveStatsTableEntry": {
+    "tp": "SEQUENCE"
+  },
+  "perDriveStatsTableIndex": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "perDriveStatsTableEntry",
+      1
+    ]
+  },
+  "perDriveStatsTableDriveName": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "perDriveStatsTableEntry",
+      2
+    ]
+  },
+  "perDriveStatsTableInputKbytes": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "perDriveStatsTableEntry",
+      3
+    ]
+  },
+  "perDriveStatsTableOutputKbytes": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "perDriveStatsTableEntry",
+      4
+    ]
+  },
+  "evoSessions": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "evo",
+      8
+    ]
+  },
+  "iscsiSessionsTable": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "SEQUENCE OF IscsiSessionsTableEntry"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoSessions",
+      1
+    ]
+  },
+  "iscsiSessionsTableEntry": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "IscsiSessionsTableEntry"
+    },
+    "access": null,
+    "index": [
+      "iscsiSessionsTableIndex"
+    ],
+    "value": [
+      "iscsiSessionsTable",
+      1
+    ]
+  },
+  "IscsiSessionsTableEntry": {
+    "tp": "SEQUENCE"
+  },
+  "iscsiSessionsTableIndex": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "iscsiSessionsTableEntry",
+      1
+    ]
+  },
+  "iscsiSessionsTableSid": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "iscsiSessionsTableEntry",
+      2
+    ]
+  },
+  "iscsiSessionsTableTarget": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "iscsiSessionsTableEntry",
+      3
+    ]
+  },
+  "iscsiSessionsTableInitiator": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "iscsiSessionsTableEntry",
+      4
+    ]
+  },
+  "iscsiSessionsTableIp": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "iscsiSessionsTableEntry",
+      5
+    ]
+  },
+  "iscsiSessionsTableSpeed": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "iscsiSessionsTableEntry",
+      6
+    ]
+  },
+  "fcSessionsTable": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "SEQUENCE OF FcSessionsTableEntry"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoSessions",
+      2
+    ]
+  },
+  "fcSessionsTableEntry": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "FcSessionsTableEntry"
+    },
+    "access": null,
+    "index": [
+      "fcSessionsTableIndex"
+    ],
+    "value": [
+      "fcSessionsTable",
+      1
+    ]
+  },
+  "FcSessionsTableEntry": {
+    "tp": "SEQUENCE"
+  },
+  "fcSessionsTableIndex": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "fcSessionsTableEntry",
+      1
+    ]
+  },
+  "fcSessionsTablePort": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "fcSessionsTableEntry",
+      2
+    ]
+  },
+  "fcSessionsTableInitiator": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "fcSessionsTableEntry",
+      3
+    ]
+  },
+  "fcSessionsTableCommands": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "fcSessionsTableEntry",
+      4
+    ]
+  },
+  "fcSessionsTableGroup": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "fcSessionsTableEntry",
+      5
+    ]
+  },
+  "fcSessionsTableSpeed": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "fcSessionsTableEntry",
+      6
+    ]
+  },
+  "nasSessionsTable": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "SEQUENCE OF NasSessionsTableEntry"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoSessions",
+      3
+    ]
+  },
+  "nasSessionsTableEntry": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "NasSessionsTableEntry"
+    },
+    "access": null,
+    "index": [
+      "nasSessionsTableIndex"
+    ],
+    "value": [
+      "nasSessionsTable",
+      1
+    ]
+  },
+  "NasSessionsTableEntry": {
+    "tp": "SEQUENCE"
+  },
+  "nasSessionsTableIndex": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "nasSessionsTableEntry",
+      1
+    ]
+  },
+  "nasSessionsTableProto": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "nasSessionsTableEntry",
+      2
+    ]
+  },
+  "nasSessionsTableShare": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "nasSessionsTableEntry",
+      3
+    ]
+  },
+  "nasSessionsTableRemote": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "nasSessionsTableEntry",
+      4
+    ]
+  },
+  "nasSessionsTableSpeed": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "nasSessionsTableEntry",
+      5
+    ]
+  },
+  "volumesTable": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "SEQUENCE OF VolumesTableEntry"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evo",
+      9
+    ]
+  },
+  "volumesTableEntry": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "VolumesTableEntry"
+    },
+    "access": null,
+    "index": [
+      "volumesTableIndex"
+    ],
+    "value": [
+      "volumesTable",
+      1
+    ]
+  },
+  "VolumesTableEntry": {
+    "tp": "SEQUENCE"
+  },
+  "volumesTableIndex": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "volumesTableEntry",
+      1
+    ]
+  },
+  "volumesTablePool": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "volumesTableEntry",
+      2
+    ]
+  },
+  "volumesTableVolume": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "volumesTableEntry",
+      3
+    ]
+  },
+  "volumesTableHealth": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "volumesTableEntry",
+      4
+    ]
+  },
+  "volumesTableStatus": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "volumesTableEntry",
+      5
+    ]
+  },
+  "volumesTableSize": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "volumesTableEntry",
+      6
+    ]
+  },
+  "realtimeVolumesTable": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "SEQUENCE OF RealtimeVolumesTableEntry"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evo",
+      10
+    ]
+  },
+  "realtimeVolumesTableEntry": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "RealtimeVolumesTableEntry"
+    },
+    "access": null,
+    "index": [
+      "realtimeVolumesTableIndex"
+    ],
+    "value": [
+      "realtimeVolumesTable",
+      1
+    ]
+  },
+  "RealtimeVolumesTableEntry": {
+    "tp": "SEQUENCE"
+  },
+  "realtimeVolumesTableIndex": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "realtimeVolumesTableEntry",
+      1
+    ]
+  },
+  "realtimeVolumesTablePool": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "realtimeVolumesTableEntry",
+      2
+    ]
+  },
+  "realtimeVolumesTableVolume": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "realtimeVolumesTableEntry",
+      3
+    ]
+  },
+  "realtimeVolumesTablePartition": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "realtimeVolumesTableEntry",
+      4
+    ]
+  },
+  "realtimeVolumesTableStatus": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "realtimeVolumesTableEntry",
+      5
+    ]
+  },
+  "realtimeVolumesTableTotal": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "realtimeVolumesTableEntry",
+      6
+    ]
+  },
+  "realtimeVolumesTableFree": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "realtimeVolumesTableEntry",
+      7
+    ]
+  },
+  "evoCpuDetails": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "evo",
+      11
+    ]
+  },
+  "evoCpuDetailsUptime": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoCpuDetails",
+      1
+    ]
+  },
+  "evoCpuDetailsIdleTime": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoCpuDetails",
+      2
+    ]
+  },
+  "evoCpuDetailsCpuCount": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Integer32"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "evoCpuDetails",
+      3
+    ]
+  },
+  "snsTrapDetails": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "access": null,
+    "index": null,
+    "value": [
+      "snsTrapPayloads",
+      1
+    ]
+  }
+}
