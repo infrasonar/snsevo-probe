@@ -13,6 +13,7 @@ QUERIES = (
 # NOTE evo, evoCpuDetails, evoUptime, evoUPS are single item, but we have to
 # set is_table=True as oids in the result lack the 0 at the end.
 
+
 async def check_evo(
         asset: Asset,
         asset_config: dict,
