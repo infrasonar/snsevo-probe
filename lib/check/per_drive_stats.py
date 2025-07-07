@@ -15,6 +15,13 @@ async def check_per_drive_stats(
 
     snmp = get_snmp_client(asset, asset_config, check_config)
     state = await snmpquery(snmp, QUERIES)
+
+    for item in state['perDriveStatsTableEntry']:
+        in_kb = item.pop('perDriveStatsTableInputKbytes')
+        out_kb = item.pop('perDriveStatsTableOutputKbytes')
+        item['perDriveStatsTableInput'] = in_kb * 1000
+        item['perDriveStatsTableOutput'] = out_kb * 1000
+
     return {
         'perDriveStats': state['perDriveStatsTableEntry']
     }

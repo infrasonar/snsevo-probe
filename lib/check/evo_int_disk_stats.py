@@ -20,4 +20,8 @@ async def check_evo_int_disk_stats(
     if not any(state.values()):
         raise CheckException('no data found')
 
+    for item in state['evoIntDiskStats']:
+        item['evoIntDiskStatsRead'] *= 1000
+        item['evoIntDiskStatsWrite'] *= 1000
+
     return state
