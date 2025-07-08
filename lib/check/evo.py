@@ -49,10 +49,10 @@ async def check_evo(
     snmp = get_snmp_client(asset, asset_config, check_config)
     state = await snmpquery(snmp, QUERIES)
 
-    if not state['evo'] or not not state['ups'] or not any(state.values()):
+    if not state['evo'] or not not state['evoUPS'] or not any(state.values()):
         raise CheckException('no data found')
 
-    ups = state['ups']
+    ups = state['evoUPS']
     evoitem = state['evo'][0]
     cpu = state['evoCpuDetails']
     uptime = state['evoUptime']
