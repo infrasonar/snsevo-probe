@@ -31,10 +31,14 @@ AS_INT = {
     'tp': 'CUSTOM', 'func': 'as_int',
 }
 # use as custom syntax as it otherwise returns error for the evo query as
-# there are 2 tables as direct child oids which we cannot parse
+# there are 3 tables as direct child oids which we cannot parse
 MIB_INDEX[MIB_INDEX['EVO-MIB']['volumesTable']]['syntax'] = AS_NONE
 MIB_INDEX[MIB_INDEX['EVO-MIB']['realtimeVolumesTable']]['syntax'] = AS_NONE
 MIB_INDEX[MIB_INDEX['EVO-MIB']['perDriveStatsTable']]['syntax'] = AS_NONE
+# these are not direct child oids but should not be parsed
+MIB_INDEX[MIB_INDEX['EVO-MIB']['fcSessionsTable']]['syntax'] = AS_NONE
+MIB_INDEX[MIB_INDEX['EVO-MIB']['iscsiSessionsTable']]['syntax'] = AS_NONE
+MIB_INDEX[MIB_INDEX['EVO-MIB']['nasSessionsTable']]['syntax'] = AS_NONE
 # use as custom syntax to convert to float
 MIB_INDEX[MIB_INDEX['EVO-MIB']['evoCpuLoadedUptime']]['syntax'] = AS_INT
 MIB_INDEX[MIB_INDEX['EVO-MIB']['evoCpuDetailsUptime']]['syntax'] = AS_INT
@@ -49,7 +53,7 @@ async def check_evo(
     snmp = get_snmp_client(asset, asset_config, check_config)
     state = await snmpquery(snmp, QUERIES)
 
-    if not state['evo'] or not not state['evoUPS'] or not any(state.values()):
+    if not state['evo']:
         raise CheckException('no data found')
 
     ups = state['evoUPS']
@@ -69,7 +73,10 @@ async def check_evo(
     if uptime:
         item.update(uptime[0])
 
-    return {
-        'evo': [item],
-        'ups': ups,
+    state = {
+        'evo': [item]
     }
+    if ups:
+        state['ups'] = ups
+
+    return state
