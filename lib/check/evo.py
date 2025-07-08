@@ -65,7 +65,6 @@ async def check_evo(
         'name': 'evo',
         'evoVersion': evoitem['evoVersion'],
         'evoLocalTime': evoitem['evoLocalTime'],
-        'evoCpuLoadedUptime': evoitem['evoCpuLoadedUptime'],
     }
 
     if cpu:
