@@ -33,6 +33,7 @@ AS_INT = {
 # use as custom syntax as it otherwise returns error for the evo query as
 # there are 2 tables as direct child oids which we cannot parse
 MIB_INDEX[MIB_INDEX['EVO-MIB']['volumesTable']]['syntax'] = AS_NONE
+MIB_INDEX[MIB_INDEX['EVO-MIB']['realtimeVolumesTable']]['syntax'] = AS_NONE
 MIB_INDEX[MIB_INDEX['EVO-MIB']['perDriveStatsTable']]['syntax'] = AS_NONE
 # use as custom syntax to convert to float
 MIB_INDEX[MIB_INDEX['EVO-MIB']['evoCpuLoadedUptime']]['syntax'] = AS_INT
