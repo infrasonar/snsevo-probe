@@ -1,6 +1,7 @@
 from asyncsnmplib.mib.mib_index import MIB_INDEX
 from asyncsnmplib.mib.syntax_funs import SYNTAX_FUNS
 from libprobe.asset import Asset
+from libprobe.check import Check
 from libprobe.exceptions import CheckException
 from ..snmpclient import get_snmp_client
 from ..snmpquery import snmpquery
@@ -45,37 +46,38 @@ MIB_INDEX[MIB_INDEX['EVO-MIB']['evoCpuDetailsUptime']]['syntax'] = AS_INT
 MIB_INDEX[MIB_INDEX['EVO-MIB']['evoCpuDetailsIdleTime']]['syntax'] = AS_INT
 
 
-async def check_evo(
-        asset: Asset,
-        asset_config: dict,
-        check_config: dict) -> dict:
+class CheckEvo(Check):
+    key = 'evo'
 
-    snmp = get_snmp_client(asset, asset_config, check_config)
-    state = await snmpquery(snmp, QUERIES)
+    @staticmethod
+    async def run(asset: Asset, local_config: dict, config: dict) -> dict:
 
-    if not state['evo']:
-        raise CheckException('no data found')
+        snmp = get_snmp_client(asset, local_config, config)
+        state = await snmpquery(snmp, QUERIES)
 
-    ups = state['evoUPS']
-    evoitem = state['evo'][0]
-    cpu = state['evoCpuDetails']
-    uptime = state['evoUptime']
+        if not state['evo']:
+            raise CheckException('no data found')
 
-    item = {
-        'name': 'evo',
-        'evoVersion': evoitem['evoVersion'],
-        'evoLocalTime': evoitem['evoLocalTime'],
-    }
+        ups = state['evoUPS']
+        evoitem = state['evo'][0]
+        cpu = state['evoCpuDetails']
+        uptime = state['evoUptime']
 
-    if cpu:
-        item.update(cpu[0])
-    if uptime:
-        item.update(uptime[0])
+        item = {
+            'name': 'evo',
+            'evoVersion': evoitem['evoVersion'],
+            'evoLocalTime': evoitem['evoLocalTime'],
+        }
 
-    state = {
-        'evo': [item]
-    }
-    if ups:
-        state['ups'] = ups
+        if cpu:
+            item.update(cpu[0])
+        if uptime:
+            item.update(uptime[0])
 
-    return state
+        state = {
+            'evo': [item]
+        }
+        if ups:
+            state['ups'] = ups
+
+        return state
