@@ -11,6 +11,7 @@ QUERIES = (
 
 class CheckPerDriveStats(Check):
     key = 'perDriveStats'
+    unchanged_eol = 0
 
     @staticmethod
     async def run(asset: Asset, local_config: dict, config: dict) -> dict:

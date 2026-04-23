@@ -48,6 +48,7 @@ MIB_INDEX[MIB_INDEX['EVO-MIB']['evoCpuDetailsIdleTime']]['syntax'] = AS_INT
 
 class CheckEvo(Check):
     key = 'evo'
+    unchanged_eol = 0
 
     @staticmethod
     async def run(asset: Asset, local_config: dict, config: dict) -> dict:
