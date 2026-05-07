@@ -1,5 +1,6 @@
 from asyncsnmplib.mib.mib_index import MIB_INDEX
 from libprobe.asset import Asset
+from libprobe.check import Check
 from libprobe.exceptions import CheckException
 from ..snmpclient import get_snmp_client
 from ..snmpquery import snmpquery
@@ -11,19 +12,21 @@ QUERIES = (
 # oids in the result lack the 0 at the end.
 
 
-async def check_evo_int_disk_stats(
-        asset: Asset,
-        asset_config: dict,
-        check_config: dict) -> dict:
+class CheckEvoIntDiskStats(Check):
+    key = 'evoIntDiskStats'
+    unchanged_eol = 0
 
-    snmp = get_snmp_client(asset, asset_config, check_config)
-    state = await snmpquery(snmp, QUERIES)
+    @staticmethod
+    async def run(asset: Asset, local_config: dict, config: dict) -> dict:
 
-    if not any(state.values()):
-        raise CheckException('no data found')
+        snmp = get_snmp_client(asset, local_config, config)
+        state = await snmpquery(snmp, QUERIES)
 
-    for item in state['evoIntDiskStats']:
-        item['evoIntDiskStatsRead'] *= 1000
-        item['evoIntDiskStatsWrite'] *= 1000
+        if not any(state.values()):
+            raise CheckException('no data found')
 
-    return state
+        for item in state['evoIntDiskStats']:
+            item['evoIntDiskStatsRead'] *= 1000
+            item['evoIntDiskStatsWrite'] *= 1000
+
+        return state
